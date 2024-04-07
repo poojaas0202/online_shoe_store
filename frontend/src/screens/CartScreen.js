@@ -20,7 +20,7 @@ export default function CartScreen() {
   } = state;
 
   const updateCartHandler = async (item, quantity) => {
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(`https://online-shoe-store-server.vercel.app/api/products/${item._id}`);
     const selectedSizeQuantity = data.stock[item.size] || 0;
 
     if (selectedSizeQuantity < quantity) {
