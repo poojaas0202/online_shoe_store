@@ -78,7 +78,7 @@ export default function ProductEditScreen() {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/products/${productId}`);
+        const { data } = await axios.get(`https://online-shoe-store-server.vercel.app/api/products/${productId}`);
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
@@ -149,7 +149,7 @@ export default function ProductEditScreen() {
     bodyFormData.append('file', file);
     try {
       dispatch({ type: 'UPLOAD_REQUEST' });
-      const { data } = await axios.post('/api/upload', bodyFormData, {
+      const { data } = await axios.post('https://online-shoe-store-server.vercel.app/api/upload', bodyFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           authorization: `Bearer ${userInfo.token}`,
