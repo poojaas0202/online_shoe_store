@@ -32,7 +32,7 @@ export default function ResetPasswordScreen() {
       return;
     }
     try {
-      await Axios.post('/api/users/reset-password', {
+      await Axios.post('https://online-shoe-store-server.vercel.app/api/users/reset-password', {
         password,
         token,
       });
