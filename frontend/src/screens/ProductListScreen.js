@@ -80,7 +80,7 @@ export default function ProductListScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`/api/products/admin?page=${page} `, {
+        const { data } = await axios.get(`https://online-shoe-store-server.vercel.app/api/products/admin?page=${page} `, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
 
@@ -100,7 +100,7 @@ export default function ProductListScreen() {
       try {
         dispatch({ type: 'CREATE_REQUEST' });
         const { data } = await axios.post(
-          '/api/products',
+          'https://online-shoe-store-server.vercel.app/api/products',
           {},
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -121,7 +121,7 @@ export default function ProductListScreen() {
   const deleteHandler = async (product) => {
     if (window.confirm('Are you sure to delete?')) {
       try {
-        await axios.delete(`/api/products/${product._id}`, {
+        await axios.delete(`https://online-shoe-store-server.vercel.app/api/products/${product._id}`, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         toast.success('product deleted successfully');
